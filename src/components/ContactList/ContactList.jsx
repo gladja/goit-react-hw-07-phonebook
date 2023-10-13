@@ -2,12 +2,17 @@ import { BtnDel, Item, List, Row } from './ContactList.styled';
 import { AiFillDelete } from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContacts } from '../../redux/slice';
+import { deleteContacts, getAllContacts } from '../../redux/slice';
+import { useEffect } from 'react';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.phonebook.contacts);
+  const contacts = useSelector(state => state.phonebook.contacts.items);
   const filter = useSelector(state => state.phonebook.filter )
+
+  useEffect(() => {
+    dispatch(getAllContacts());
+  }, [dispatch]);
 
   const handleDelete = (id) => {
     dispatch(deleteContacts(id));

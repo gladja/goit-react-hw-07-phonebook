@@ -1,6 +1,10 @@
 import data from '../data/data.json'
 
 export const initialState = {
-  contacts: [...data],
+  contacts: {
+    items: [],
+    isLoading: false,
+    error: null
+  },
   filter: '',
 };

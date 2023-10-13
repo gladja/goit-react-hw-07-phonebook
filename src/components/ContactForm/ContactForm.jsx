@@ -1,7 +1,8 @@
 import Notiflix from 'notiflix';
 import { Btn, Form, Input, Label } from './ContactForm.styled';
-import { createContacts } from '../../redux/slice';
+import { createContacts, getAllContacts } from '../../redux/slice';
 import { useDispatch, useSelector } from 'react-redux';
+import getContacts from '../../service/api-request';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,14 @@ export const ContactForm = () => {
     e.currentTarget.reset();
   };
 
+  const handleApi = () => {
+    getContacts();
+    getAllContacts();
+  }
+
   return (
     <>
+      <button onClick={handleApi}>api</button>
       <Form onSubmit={handleSubmit}>
         <Label>
           Name
