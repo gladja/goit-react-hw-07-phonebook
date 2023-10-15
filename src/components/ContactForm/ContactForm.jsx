@@ -2,10 +2,11 @@ import Notiflix from 'notiflix';
 import { Btn, Form, Input, Label } from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from '../../redux/api-request';
+import { selectContacts } from '../../redux/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.phonebook.contacts.items);
+  const contacts = useSelector(selectContacts);
 
   const handleSubmit = (e) => {
     e.preventDefault();

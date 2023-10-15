@@ -10,7 +10,7 @@ const handleFulfilled = (state) => {
   state.contacts.isLoading = false
 }
 
-const handleRejected = (state, { error }) => {
+const handleRejected = (state, { error }) => { // (state, {payload, error })
   console.log(error);
   state.contacts.isLoading = false;
   state.contacts.error = error.message;
