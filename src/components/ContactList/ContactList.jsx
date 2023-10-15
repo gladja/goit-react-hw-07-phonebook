@@ -24,7 +24,7 @@ export const ContactList = () => {
   const contactsFilterResult = contacts?.filter(el => {
     return el.name.toLowerCase().includes(filter.toLowerCase());
   });
-  console.log(contactsFilterResult);
+
   return (
     <List>
       {isLoading && <h2>Loading...</h2>}
